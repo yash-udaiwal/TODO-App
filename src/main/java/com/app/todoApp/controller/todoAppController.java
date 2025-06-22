@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tasks")
 public class todoAppController {
 
     private final TaskService taskService;
@@ -29,18 +28,18 @@ public class todoAppController {
     public String addTask(@RequestParam String title)
     {
         taskService.addTask(title);
-        return "redirect:/tasks";
+        return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteTask(@PathVariable Long id){
         taskService.deleteTask(id);
-        return "redirect:/tasks";
+        return "redirect:/";
     }
 
     @GetMapping("/toggle/{id}")
     public String toggleTask(@PathVariable Long id){
         taskService.toggleTask(id);
-        return "redirect:/tasks";
+        return "redirect:/";
     }
 }
